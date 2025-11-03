@@ -1,0 +1,138 @@
+/* COMMON */
+* {
+  box-sizing: border-box;  
+}
+
+body {
+  /* 글자 관련 기본(공통) 스타일 추가*/
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 영문에만 적용할 폰트 */
+.font-en {
+  font-family: "Open Sans",sans-serif;
+}
+
+a {
+  /* 밑줄 제거 */
+  text-decoration: none;
+  color: inherit;
+}
+
+.inner {
+  max-width: 1200px;
+  /* 가로 너비를 가진 블록 요소의 가운데 정렬 */
+  /* display: flex를 사용하는 경우보다 더 단순한 margine 사용 */
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #c8c8c8;
+  box-shadow: 0 2px 8px rgba(204, 204, 204, 0.8); /* x y 번짐정도rgba(r,g,b,투명도)*/
+  
+  /* 고정된 헤더 만들기 */
+  position: fixed; /*view 포트:브라우저 창*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /*z-index는 우선순위, 팀 내 기준 작성 필요*/
+}
+
+header > .inner {
+  height: 60px;
+  display: flex;
+  justify-content: space-between; /* display방향에 따라 달라짐. justify:주축 정렬, align:교차축 정렬*/
+  align-items: center;
+}
+
+.animate-flash{
+  animation-name: flash;
+  animation-duration: 500ms;
+  /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+  animation-iteration-count: 20; /*infinity는 무한*/
+}
+
+header .logo img {
+  width: 40px;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  padding: 10px 20px;
+  font-weight: bold; /*bold=700, default=400*/
+}
+
+header nav ul li a:hover{
+  color: #9b30ff;
+}
+
+header nav ul li a{
+  position: relative;
+  /*
+    static: 기본값, 위치기준X
+    relative: 자신을 기준
+    fixed: 특정 위치에 고정, 뷰포트 기준
+    absolute: 부모태그의 position을 기준
+  */
+}
+
+header nav ul li a::after {
+   /*가상 요소의 장점은 HTML 구조 추가와 class 속성 값의 추가 없이 구현 및 제어 가능*/
+  content: "";
+  display: block;
+  width: 0; /*초기에는 밑줄이 안보이도록 0으로 설정*/
+  height: 2px;
+  background-color: #9b30ff;
+  transition: 1000ms;
+  position: absolute;
+  bottom: -3px;
+  right: 0px;
+}
+
+header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
+  width: 100%;
+  color: #9b30ff;
+}
+
+/* VISUAL */
+.visual{
+  /* 헤더가 fixed되어 일반 배치 흐름에서 벗어남(주변 요소들과 상호작용하지 않음) */
+  margin-top: 60px;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+.visual .inner{
+  height: calc(100vh - 60px); /*계산시 띄어쓰기 css함수 사용*/
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+/* Animation 정의는 맨 마지막에 사용 */
+/* @ CSS 룰 keyframes는 애니메이션 룰 */
+@keyframes flash{ 
+  0%, 40%, 80%{
+    opacity: 1;
+  }
+  20%, 60%, 100%{
+    opacity: 0;
+  }
+}

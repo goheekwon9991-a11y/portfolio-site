@@ -4,8 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"> <!-- reset.css, min = 경량화 의미 -->
+
+  <!-- 구글 웹폰트 연결 noto sans korea, open sans-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <!-- 구글 머터리얼 아이콘 연결 -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="./css/main.css"> <!--reset 아래에 css적용을 권장-->
+  <script defer src="js/main.js"></script> <!--body 태그 마지막 작성 또는, defer(지연) 속성 사용 필요-->
 </head>
 <body>
-  
+
+  <!-- HEADER -->
+  <header>
+    <div class="inner">
+      <!-- 로고 -->
+      <a href="index.html" class="logo">
+        <img src="/images/logo.png" alt="로고"> <!--alt 대체 이미지 불러오지 못할 경우 사용, 웹 접근성-->
+      </a>
+      <nav>
+        <ul> <!--<ol> 잘 사용하지 않음, <li>태그 내부에 추가 태그 사용-->
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#skill">SKILL</a></li>
+          <li><a href="#project">PROJECT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- VISUAL -->
+  <!-- 첫 화면에 눈길을 끌 수 있는 자기를 소개하는 내용 담기 -->
+  <section class="visual">
+    <div class="inner">
+      <h1>
+        <span class="animate-flash" style="animation-delay: 0.04s;">반</span>
+          <span class="animate-flash" style="animation-delay: 0.26s;">짝</span>
+          <span class="animate-flash" style="animation-delay: 0.08s;">반</span>
+          <span class="animate-flash" style="animation-delay: 0.02s;">짝</span>
+          &nbsp;
+          <span class="animate-flash purple" style="animation-delay: 0.26s;">빛</span>
+          <span class="animate-flash purple" style="animation-delay: 0.06s;">나</span>
+          <span class="animate-flash purple" style="animation-delay: 0.14s;">는</span>
+          <br>
+          <span class="animate-flash" style="animation-delay: 0.06s;">F</span>
+          <span class="animate-flash" style="animation-delay: 0.28s;">u</span>
+          <span class="animate-flash" style="animation-delay: 0.12s;">l</span>
+          <span class="animate-flash" style="animation-delay: 0.15s;">l</span>
+          &nbsp;
+          <span class="animate-flash" style="animation-delay: 0.02s;">S</span>
+          <span class="animate-flash" style="animation-delay: 0.22s;">t</span>
+          <span class="animate-flash" style="animation-delay: 0.17s;">a</span>
+          <span class="animate-flash" style="animation-delay: 0.19s;">c</span>
+          <span class="animate-flash" style="animation-delay: 0.20s;">k</span>
+          &nbsp;<br class="mobile-lf" style="display: none;">
+          <span class="animate-flash purple" style="animation-delay: 0.11s;">D</span>
+          <span class="animate-flash purple" style="animation-delay: 0.18s;">e</span>
+          <span class="animate-flash purple" style="animation-delay: 0.05s;">v</span>
+          <span class="animate-flash purple" style="animation-delay: 0.06s;">e</span>
+          <span class="animate-flash purple" style="animation-delay: 0.09s;">l</span>
+          <span class="animate-flash purple" style="animation-delay: 0.24s;">o</span>
+          <span class="animate-flash purple" style="animation-delay: 0.28s;">p</span>
+          <span class="animate-flash purple" style="animation-delay: 0.14s;">e</span>
+          <span class="animate-flash purple" style="animation-delay: 0.25s;">r</span>
+          <br>
+          <span class="animate-flash purple" style="animation-delay: 0.10s;">고</span>
+          <span class="animate-flash purple" style="animation-delay: 0.16s;">희</span>
+          <span class="animate-flash purple" style="animation-delay: 0.24s;">권</span>
+          <span class="animate-flash" style="animation-delay: 0.12s;">입</span>
+          <span class="animate-flash" style="animation-delay: 0.15s;">니</span>
+          <span class="animate-flash" style="animation-delay: 0.05s;">다</span>
+          <span class="animate-flash" style="animation-delay: 0.13s;">.</span>
+      </h1>
+    </div>
+  </section>
 </body>
 </html>

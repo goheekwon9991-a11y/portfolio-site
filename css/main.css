@@ -119,6 +119,9 @@ header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
   align-items: center;
 }
 
+.visual > .inner .purple{
+  color: #9b30ff;
+}
 
 
 

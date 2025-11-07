@@ -118,3 +118,30 @@ function classListAdd(objLi,className){
     el.classList.add(className)
   });
 }
+
+const nav = document.querySelector('header .pc-nav')
+const btnHamburger = document.querySelector('header .btn-hamburger')
+
+btnHamburger.addEventListener('click', () => {
+  // if(nav.style.height === "0px"){
+  //   nav.style.height = "100%"
+  // }else{
+  //   nav.style.height = "0px"
+  // }
+
+  // if(nav.classList.contains("active")){
+  //   nav.classList.remove("active")
+  // }else{
+  //   nav.classList.add("active")
+  // }
+  nav.classList.toggle('active')
+})
+
+const navALi = document.querySelectorAll("header .inner nav a")
+
+navALi.forEach((navA)=>{
+  navA.addEventListener('click',() => {
+    console.log(navA)
+    nav.classList.toggle('active')
+  })
+})

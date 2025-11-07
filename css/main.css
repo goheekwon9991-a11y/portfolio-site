@@ -174,12 +174,19 @@ header nav ul li a::after {
   transition: 1000ms;
   position: absolute;
   bottom: -3px;
-  right: 0px;
+  left: 0px;
 }
 
 header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
   width: 100%;
   color: #9b30ff;
+}
+header .btn-hamburger{
+  display: none;
+}
+header .btn-hamburger .material-symbols-outlined{
+  font-size: 40px;
+  line-height: 60px;
 }
 
 /* VISUAL */
@@ -245,6 +252,11 @@ header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
   font-weight: 600;
   margin-bottom: 16px;
 }
+.about .about__wrapper .about__text ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .about .about__wrapper .about__text li {
   line-height: 1.8;
 }
@@ -252,7 +264,7 @@ header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
 .about .about__btn {
   position: absolute;
   right: 20px;
-  bottom: -30px;
+  bottom: -60px;
 }
 .about .about__btn a{
   /* display: flex;
@@ -394,7 +406,7 @@ header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
 }
 
 .contact {
-  padding: 200px 0
+  padding: 200px 0;
 }
 
 .contact .contact__info li {
@@ -453,13 +465,13 @@ header nav ul li a:hover::after{ /*hover시 ::after style 조정*/
 footer {
   background-color: #000;
   color: #fff;
+  padding: 200px 0px;
 }
 
 footer .copyright{
   text-align: center;
   font-weight: 600;
   /* line-height 사용시 글자 수직정렬 가능 */
-  line-height: 200px;
 }
 
 
@@ -515,7 +527,7 @@ footer .copyright{
   text-align: center;
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 60px;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -535,25 +547,154 @@ footer .copyright{
   line-height: 42px;
 }
 
-#quick-slot{
-  position: fixed;
-  overflow: hidden;
-  right:10px;
-  top: calc(50vh - 200px);
-  width: 100px;
-  height: calc(100vh - 500px);
-  background-color: #fff8e8;
-  border-radius: 8px;
-  z-index: 30;
+/* 반응형 스타일 */
+/* (참고1) 일반적인 중단점(분기점, Break Point)
+  1. 5개 기준(매우 복잡)
+  ~ 479px : 모바일 세로
+  480px ~ 767px : 모바일 가로, 태블릿 세로
+  768px ~ 1023px : 태블릿 가로
+  1024px ~ 1279px : 노트북
+  1280px ~ : 데스크톱
+
+  2. 4개 기준(복잡)
+  ~ 479px : 모바일 세로
+  480px ~ 767px : 모바일 가로, 태블릿 세로
+  768px ~ 1023px : 태블릿 가로
+  1024px ~ : 데스크톱
+
+  3. 3개 기준(일반적, Good)
+  ~ 767px : 모바일 (1열 정렬)
+  768px ~ 1023px : 태블릿 (2열 정렬)
+  1024px ~ : 데스크톱 (3열 이상)
+
+  4. 2개 기준(일반적, Normal)
+  ~ 767px : 모바일
+  768px ~ : 태블릿, 데스크톱
+*/
+/* (참고2) 부트스트랩에서 사용하는 중단점
+  1200px / 992px / 768px / 576px
+
+  1200px / 992px 중 어디부터 태블릿 사이즈로 볼지
+  768px / 576px 중 어디부터 모바일 사이즈로 볼지는 선택 사항
+*/
+
+/* 장치가 화면이고 최대 너비가 767px 일 때 */
+/* print 미리보기도 조정하고 싶다면 장치에 print추가 */
+@media screen and (max-width:767px),
+      print and (max-width:767px){
+  /* 모바일에서는 화면의 80%만 차지하도록 변경 */
+  .inner {
+    width: 80%;
+  }
+  .title {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+
+  .title::after {
+    width: 60px;
+  }
+
+  header .btn-hamburger{
+    display: block;
+  }
+
+  header nav{
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: #fff8e8;
+    width: 100%;
+    /* 햄버거 클릭시 조정, js */
+    height: 0;
+    overflow: hidden;
+    transition: 500ms;
+  }
+
+  header nav.active{
+    height: 100%;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  header nav ul li{
+    padding: 10px 20px;
+    font-size: 30px;
+  }
+  header nav ul li a:hover{
+    letter-spacing: 10px;
+  }
+
+  .visual > .inner{
+    font-size: 30px;
+  }
+  .visual > .inner .mobile-lf{
+    display: inline !important;
+  }
+
+  .about {
+    padding: 100px 0;
+  }
+  .about .about__wrapper{
+    flex-direction: column;
+  }
+  .about__wrapper .about_img{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .about__wrapper .about__text{
+    width: 100%;
+    text-align: center;
+  }
+  .about .about__wrapper .about__text li {
+    line-height: 1.8;
+  }
+  .about .about__btn {
+    position: relative;
+    right: 0px;
+    text-align: center;
+  }
+
+  .skill {
+    padding: 100px 0;
+  }
+
+  .project {
+    padding: 100px 0;
+  }
+  .project .port {
+    flex-direction: column;
+    margin: 40px 0;
+  }
+  .project .port .port__img, 
+  .project .port .port__text {
+    width: 100%;
+  }
+  .project .port .port__text {
+    padding: 20px 0 0;
+  }
+  .project .port .btn-group {
+    margin-top: 20px;
+  }
+
+  .contact {
+    padding: 100px 0;
+  }
+
+  #imageModal .modal-content {
+    width: 80%;
+  }
+  #imageModal .modal-body img {
+    width: 100%;
+  }
+
+  /* 인쇄금지^^ */
+@media print {
+  * {
+    display: none;
+  }
 }
 
-.quick-slot .quick-slot-content{
-  display: flex;
-  flex-direction: column;
 }
-
-.quick-slot .quick-slot-content .slot{
-  /* margin: 0 auto; */
-  column-gap: 100;
-}
-
